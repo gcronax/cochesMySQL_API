@@ -1,7 +1,6 @@
 package com.example.plantasMySQL.controller
 import com.example.plantasMySQL.model.Jardin
 import com.example.plantasMySQL.service.JardinService
-
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
@@ -19,15 +18,15 @@ class JardinController(private val jardinService: JardinService) {
     fun detalle(@PathVariable id_jardin: Int, model: Model): String {
         val jardin = jardinService.buscarPorId(id_jardin) ?: return "errorjardin"
         model.addAttribute("jardin", jardin)
-        return "detallejardin"
+        return "jardinesDetalles"
     }
 
     @GetMapping("/jardines/nueva")
     fun nuevajardin(model: Model): String {
         val jardinVacia = Jardin(nombre = "", ubicacion = "")
         model.addAttribute("jardin", jardinVacia)
-        model.addAttribute("titulo", "Nueva jardin")
-        return "formulariojardin"
+        model.addAttribute("titulo", "Nuevo jardin")
+        return "formularioJardin"
     }
 
     @GetMapping("/jardines/editar/{id_jardin}")
@@ -35,7 +34,7 @@ class JardinController(private val jardinService: JardinService) {
         val jardin = jardinService.buscarPorId(id_jardin) ?: return "redirect:/jardines"
         model.addAttribute("jardin", jardin)
         model.addAttribute("titulo", "Editar jardin")
-        return "formulariojardin"
+        return "formularioJardin"
     }
 
     @PostMapping("/jardines/guardar")
@@ -51,20 +50,11 @@ class JardinController(private val jardinService: JardinService) {
     }
 
 
-    // 1. Ruta para mostrar la página de inicio (index.html)
-    @GetMapping("/")
-    fun inicio(): String {
-        return "index"
-    }
 
 
 
-    // 2. Ruta para ejecutar la importación
-    @GetMapping("/importar")
-    fun importarDatos(): String {
-        jardinService.importarDesdeCSV() // <--- Tienes que crear este método en el Service como hablamos antes
-        return "redirect:/jardines" // Al terminar, nos lleva a la lista para ver el resultado
-    }
+
+
 
 
 }
