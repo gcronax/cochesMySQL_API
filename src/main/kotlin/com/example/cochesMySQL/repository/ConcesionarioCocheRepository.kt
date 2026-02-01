@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository
 
 
 @Repository
-interface JardinPlantaRepository :
+interface ConcesionarioCocheRepository :
     JpaRepository<ConcesionarioCoche, ConcesionarioCocheId> {}
+

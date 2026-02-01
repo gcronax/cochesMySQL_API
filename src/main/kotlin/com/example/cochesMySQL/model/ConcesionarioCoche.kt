@@ -8,20 +8,19 @@ class ConcesionarioCocheId(
 )
 
 @Entity
-@Table(name = "concesionario_coches")
 class ConcesionarioCoche(
 
     @EmbeddedId
     var id: ConcesionarioCocheId = ConcesionarioCocheId(),
 
     @ManyToOne
-    @MapsId("idJardin")
-    @JoinColumn(name = "id_jardin")
+    @MapsId("id_coche")
+    @JoinColumn(name = "id_coche")
     var coche: Coche? = null,
 
     @ManyToOne
-    @MapsId("idPlanta")
-    @JoinColumn(name = "id_planta")
+    @MapsId("id_concesionario")
+    @JoinColumn(name = "id_concesionario")
     var concesionario: Concesionario? = null,
 
     @Column(nullable = false)

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignar Coche a Concesionario</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container mt-5">
+    <form th:action="@{/cc/guardar}" th:object="${form}" method="post">
+
+        <div class="mb-3">
+            <label for="concesionario" class="form-label">Selecciona el Concesionario:</label>
+            <select class="form-select" id="concesionario" name="idConcesionario">
+                <option value="" disabled selected>-- Elegir Concesionario --</option>
+                <option th:each="concesionario : ${concesionarios}"
+                        th:value="${concesionario.id_concesionario}"
+                        th:text="${concesionario.nombre}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="coche" class="form-label">Selecciona el Coche:</label>
+            <select class="form-select" id="coche" name="idCoche">
+                <option value="" disabled selected>-- Elegir Coche --</option>
+                <option th:each="coche : ${coches}"
+                        th:value="${coche.id_coche}"
+                        th:text="${coche.marca} + ' ' + ${coche.modelo}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad:</label>
+            <input type="number" class="form-control" id="cantidad"
+                   th:field="*{cantidad}" min="1" required>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a th:href="@{/cc}" class="btn btn-secondary">Cancelar</a>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

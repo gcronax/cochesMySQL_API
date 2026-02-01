@@ -1,40 +1,43 @@
 package com.example.cochesMySQL.service
 
-
+import com.example.cochesMySQL.model.Concesionario
+import com.example.cochesMySQL.model.ConcesionarioCoche
+import com.example.cochesMySQL.model.ConcesionarioCocheId
+import com.example.cochesMySQL.model.Coche
 import com.example.cochesMySQL.repository.ConcesionarioCocheRepository
+import com.example.cochesMySQL.repository.CocheRepository
+import com.example.cochesMySQL.repository.ConcesionarioRepository
 import org.springframework.stereotype.Service
 
 @Service
-class JardinPlantaService(
-    private val ConcesionarioCocheRepository: ConcesionarioCocheRepository,
-    private val jardinRepository: JardinRepository,
-    private val plantaRepository: PlantaRepository
+class ConcesionarioCocheService(
+    private val concesionarioCocheRepository: ConcesionarioCocheRepository,
+    private val concesionarioRepository: ConcesionarioRepository,
+    private val cocheRepository: CocheRepository
 ) {
 
-    fun listarTodas(): List<JardinPlanta> =
-        jardinPlantaRepository.findAll()
+    fun listarTodas(): List<ConcesionarioCoche> =
+        concesionarioCocheRepository.findAll()
 
-    // Métodos para llenar los desplegables
-    fun listarJardines(): List<Jardin> = jardinRepository.findAll()
-    fun listarPlantas(): List<Planta> = plantaRepository.findAll()
+    fun listarConcesionarios(): List<Concesionario> = concesionarioRepository.findAll()
+    fun listarCoches(): List<Coche> = cocheRepository.findAll()
 
-    // Método para guardar
-    fun guardar(idJardin: Int, idPlanta: Int, cantidad: Int) {
-        // 1. Buscamos las entidades (lanzará error si no existen, lo cual es bueno para integridad)
-        val jardinRef = jardinRepository.findById(idJardin).orElseThrow()
-        val plantaRef = plantaRepository.findById(idPlanta).orElseThrow()
+    fun guardar(idConcesionario: Int, idCoche: Int, cantidad: Int) {
+        // 1. Buscamos las entidades (lanzará error si no existen)
+        val concesionarioRef = concesionarioRepository.findById(idConcesionario).orElseThrow()
+        val cocheRef = cocheRepository.findById(idCoche).orElseThrow()
 
         // 2. Creamos la clave compuesta
-        val id = JardinPlantaId(idJardin, idPlanta)
+        val id = ConcesionarioCocheId(idConcesionario, idCoche)
 
         // 3. Creamos la entidad relación
-        val nuevaRelacion = JardinPlanta(
+        val nuevaRelacion = ConcesionarioCoche(
             id = id,
-            jardin = jardinRef,
-            planta = plantaRef,
+            concesionario = concesionarioRef,
+            coche = cocheRef,
             cantidad = cantidad
         )
 
-        jardinPlantaRepository.save(nuevaRelacion)
+        concesionarioCocheRepository.save(nuevaRelacion)
     }
 }
