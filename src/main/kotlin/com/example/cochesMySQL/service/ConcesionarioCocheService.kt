@@ -21,6 +21,8 @@ class ConcesionarioCocheService(
 
     fun listarConcesionarios(): List<Concesionario> = concesionarioRepository.findAll()
     fun listarCoches(): List<Coche> = cocheRepository.findAll()
+    fun obtenerCochesDeConcesionario(idConcesionario: Int): List<ConcesionarioCoche> =
+        concesionarioCocheRepository.obtenerCochesDeConcesionario(idConcesionario)
 
     fun guardar(idConcesionario: Int, idCoche: Int, cantidad: Int) {
         // 1. Buscamos las entidades (lanzará error si no existen)
@@ -40,4 +42,6 @@ class ConcesionarioCocheService(
 
         concesionarioCocheRepository.save(nuevaRelacion)
     }
+
+
 }

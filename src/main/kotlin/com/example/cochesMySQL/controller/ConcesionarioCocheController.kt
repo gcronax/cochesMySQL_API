@@ -39,4 +39,28 @@ class ConcesionarioCocheController(
         concesionarioCocheService.guardar(form.idConcesionario, form.idCoche, form.cantidad)
         return "redirect:/cc" // Redirige a la lista principal
     }
+
+    @GetMapping("/cc/coches-por-concesionario")
+    fun formularioCochesPorConcesionario(model: Model): String {
+        model.addAttribute("concesionarios", concesionarioCocheService.listarConcesionarios())
+        return "cochesPorConcesionarioForm"
+    }
+
+    // Procesar el concesionario seleccionado
+    @PostMapping("/cc/coches-por-concesionario")
+    fun mostrarCochesDeConcesionario(
+        @RequestParam idConcesionario: Int,
+        model: Model
+    ): String {
+
+        val relaciones = concesionarioCocheService.obtenerCochesDeConcesionario(idConcesionario)
+        model.addAttribute("relaciones", relaciones)
+        model.addAttribute("concesionarios", concesionarioCocheService.listarConcesionarios())
+        model.addAttribute("idConcesionarioSeleccionado", idConcesionario)
+
+        return "cochesPorConcesionarioForm"
+    }
+
+
+
 }

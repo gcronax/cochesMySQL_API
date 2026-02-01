@@ -6,3 +6,4 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ConcesionarioRepository : JpaRepository<Concesionario, Int>
+
