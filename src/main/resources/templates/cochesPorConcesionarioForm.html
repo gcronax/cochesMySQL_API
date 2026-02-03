@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Coches por concesionario</title>
+  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container mt-5">
+
+  <h1>Coches por concesionario</h1>
+
+  <form th:action="@{/cc/coches-por-concesionario}" method="post" class="row g-3 mb-4">
+
+    <div class="col-md-6">
+      <label class="form-label">Selecciona un concesionario:</label>
+      <select name="idConcesionario" class="form-select" required>
+        <option value="">-- Selecciona --</option>
+        <option th:each="c : ${concesionarios}"
+                th:value="${c.id_concesionario}"
+                th:text="${c.nombre}"
+                th:selected="${c.id_concesionario == idConcesionarioSeleccionado}">
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-6 align-self-end">
+      <button type="submit" class="btn btn-success">
+        Mostrar coches
+      </button>
+    </div>
+  </form>
+
+  <table class="table table-striped" th:if="${relaciones != null}">
+    <thead>
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Cantidad</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cc : ${relaciones}">
+      <td th:text="${cc.coche.marca}">Ford</td>
+      <td th:text="${cc.coche.modelo}">Focus</td>
+      <td th:text="${cc.cantidad}">5</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <a th:href="@{/cc}" class="btn btn-secondary">Volver</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Concesionarios</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+
+<div class="container mt-5">
+    <h1>Concesionarios</h1>
+
+    <h5 th:if="${concesionarios.size() > 0}">Aquí tienes una tabla con todos los concesionarios y las acciones que puedes hacer con ellos</h5>
+    <p th:unless="${concesionarios.size() > 0}">No hay concesionarios registrados en el sistema</p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Ubicación</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="concesionario : ${concesionarios}">
+            <td th:text="${concesionario.id_concesionario}">1</td>
+            <td th:text="${concesionario.nombre}">Nombre</td>
+            <td th:text="${concesionario.ubicacion}">Ubicación</td>
+            <td>
+                <!-- Enlace a la página de detalles del concesionario -->
+                <a th:href="@{/concesionario/{id_concesionario}(id_concesionario=${concesionario.id_concesionario})}"
+                   class="btn btn-info btn-sm">Detalles</a>
+
+                <a th:href="@{/concesionarios/editar/{id_concesionario}(id_concesionario=${concesionario.id_concesionario})}"
+                   class="btn btn-info btn-sm">Editar</a>
+
+                <!-- Borrar -->
+                <a th:href="@{/concesionarios/borrar/{id_concesionario}(id_concesionario=${concesionario.id_concesionario})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('¿Estás seguro de borrar este concesionario?')">Borrar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/concesionarios/nuevo}" class="btn btn-primary mt-3">Agregar Nuevo Concesionario</a>
+
+</div>
+</body>
+</html>
