@@ -19,7 +19,7 @@ interface ConcesionarioCocheRepository :
         ORDER BY c.marca, c.modelo
     """)
     fun obtenerCochesDeConcesionario(
-        @Param("idConcesionario") idConcesionario: Int
+        @Param("idConcesionario") idConcesionario: Int?
     ): List<ConcesionarioCoche>
     }
 

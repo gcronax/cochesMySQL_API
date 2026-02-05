@@ -21,7 +21,8 @@
     <table class="table table-striped mt-4" th:if="${relaciones.size() > 0}">
         <thead>
         <tr>
-            <th>Coche</th>
+            <th>Modelo</th>
+            <th>Marca</th>
             <th>Concesionario</th>
             <th>Cantidad</th>
         </tr>
@@ -29,6 +30,7 @@
         <tbody>
         <tr th:each="cc : ${relaciones}">
             <td th:text="${cc.coche.modelo}">Focus</td>
+            <td th:text="${cc.coche.marca}">Focus</td>
             <td th:text="${cc.concesionario.nombre}">Concesionario Central</td>
             <td th:text="${cc.cantidad}">5</td>
         </tr>

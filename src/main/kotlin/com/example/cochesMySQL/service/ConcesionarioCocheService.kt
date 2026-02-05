@@ -4,6 +4,7 @@ import com.example.cochesMySQL.model.Concesionario
 import com.example.cochesMySQL.model.ConcesionarioCoche
 import com.example.cochesMySQL.model.ConcesionarioCocheId
 import com.example.cochesMySQL.model.Coche
+import com.example.cochesMySQL.model.ConcesionarioConCochesDTO
 import com.example.cochesMySQL.repository.ConcesionarioCocheRepository
 import com.example.cochesMySQL.repository.CocheRepository
 import com.example.cochesMySQL.repository.ConcesionarioRepository
@@ -42,6 +43,42 @@ class ConcesionarioCocheService(
 
         concesionarioCocheRepository.save(nuevaRelacion)
     }
+    fun obtenerConcesionariosConCoches(): List<ConcesionarioConCochesDTO> {
+
+        val concesionarios = concesionarioRepository.findAll()
+
+        return concesionarios.map { concesionario ->
+
+            val relaciones =
+                concesionarioCocheRepository.obtenerCochesDeConcesionario(
+                    concesionario.id_concesionario
+                )
+
+            val cochesDTO = relaciones.mapNotNull { rel ->
+                val coche = rel.coche ?: return@mapNotNull null
+
+                Coche(
+                    id_coche = coche.id_coche,
+                    marca = coche.marca,
+                    modelo = coche.modelo,
+                    foto = coche.foto
+                )
+            }
+
+            val marcas = cochesDTO
+                .map { it.marca }
+                .distinct()
+                .sorted()
+
+            ConcesionarioConCochesDTO(
+                id = concesionario.id_concesionario,
+                nombre = concesionario.nombre,
+                coches = cochesDTO,
+                marcas = marcas
+            )
+        }
+    }
+
 
 
 }

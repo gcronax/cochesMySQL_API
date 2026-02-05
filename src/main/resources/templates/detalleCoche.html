@@ -13,7 +13,7 @@
         <div class="col-md-6 text-center" style="width: 18rem;">
             <div class="card text-center">
                 <!-- Foto -->
-                <img th:src="@{/fotos/{nombreImagen}(nombreImagen=${coche.foto})}"
+                <img th:src="${coche.foto}"
                      alt="Foto"
                      class="img-fluid rounded mb-4"
                      style="max-height: 250px;">
