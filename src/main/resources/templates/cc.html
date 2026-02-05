@@ -12,7 +12,7 @@
     <h1>Ubicación de coches en concesionarios</h1>
 
     <h5 th:if="${relaciones.size() > 0}">
-        Coches, concesionarios y cantidades
+        Coches, concesionarios y precios
     </h5>
     <p th:unless="${relaciones.size() > 0}">
         No hay datos para mostrar
@@ -24,7 +24,7 @@
             <th>Modelo</th>
             <th>Marca</th>
             <th>Concesionario</th>
-            <th>Cantidad</th>
+            <th>Precio</th>
         </tr>
         </thead>
         <tbody>
@@ -32,7 +32,7 @@
             <td th:text="${cc.coche.modelo}">Focus</td>
             <td th:text="${cc.coche.marca}">Focus</td>
             <td th:text="${cc.concesionario.nombre}">Concesionario Central</td>
-            <td th:text="${cc.cantidad}">5</td>
+            <td th:text="${cc.precio}">5</td>
         </tr>
         </tbody>
     </table>

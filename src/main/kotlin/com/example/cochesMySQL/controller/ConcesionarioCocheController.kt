@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 class ConcesionarioCocheForm(
     var idConcesionario: Int = 0,
     var idCoche: Int = 0,
-    var cantidad: Int = 0
+    var precio: Int = 0
 )
 
 @Controller
@@ -36,7 +36,7 @@ class ConcesionarioCocheController(
     // Procesar el formulario (POST)
     @PostMapping("/cc/guardar")
     fun guardarRelacion(@ModelAttribute("form") form: ConcesionarioCocheForm): String {
-        concesionarioCocheService.guardar(form.idConcesionario, form.idCoche, form.cantidad)
+        concesionarioCocheService.guardar(form.idConcesionario, form.idCoche, form.precio)
         return "redirect:/cc" // Redirige a la lista principal
     }
 

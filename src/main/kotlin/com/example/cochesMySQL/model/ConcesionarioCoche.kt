@@ -24,5 +24,5 @@ class ConcesionarioCoche(
     var concesionario: Concesionario? = null,
 
     @Column(nullable = false)
-    var cantidad: Int = 0
+    var precio: Int = 0
 )
