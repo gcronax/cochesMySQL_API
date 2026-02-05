@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/notas")
+@RequestMapping("/api/notes")
 class NotaController(private val notaService: NotaService) {
 
     @GetMapping
@@ -18,6 +18,10 @@ class NotaController(private val notaService: NotaService) {
         return if (nota != null) ResponseEntity.ok(nota)
         else ResponseEntity.notFound().build()
     }
+
+//    @GetMapping("/car/{id}")
+//    fun obtenerPorFk(@PathVariable id: Int):  List<Nota> = notaService.obtenerPorFk(id)
+
 
     @PostMapping
     fun crear(@RequestBody nota: Nota): Nota = notaService.guardar(nota)

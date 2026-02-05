@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface NotaRepository : JpaRepository<Nota, Int>
+interface NotaRepository : JpaRepository<Nota, Int> {
+//    fun findAllByCoche_fk(coche_fk: Int): List<Nota>
+}
