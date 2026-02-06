@@ -1,4 +1,4 @@
-package com.example.cochesMySQL.controller
+package com.example.cochesMySQL.controller.restControllers
 
 import com.example.cochesMySQL.model.Nota
 import com.example.cochesMySQL.service.NotaService

@@ -1,7 +1,9 @@
 package com.example.cochesMySQL.service
 
 import com.example.cochesMySQL.model.Coche
+import com.example.cochesMySQL.model.CocheNotasDTO
 import com.example.cochesMySQL.repository.CocheRepository
+import com.example.cochesMySQL.repository.NotaRepository
 import org.springframework.stereotype.Service
 
 import java.io.File
@@ -12,20 +14,35 @@ import kotlin.text.toDouble
 
 
 @Service
-class CocheService(private val repository: CocheRepository) {
+class CocheService(
+    private val cocheRepository: CocheRepository,
+    private val notaRepository: NotaRepository
 
-    fun listarCoches(): List<Coche> = repository.findAll()
+) {
 
-    fun buscarPorId(id: Int): Coche? = repository.findById(id).orElse(null)
+    fun listarCoches(): List<Coche> = cocheRepository.findAll()
 
-    fun guardar(coche: Coche): Coche = repository.save(coche)
+    fun buscarPorId(id: Int): Coche? = cocheRepository.findById(id).orElse(null)
+
+    fun guardar(coche: Coche): Coche = cocheRepository.save(coche)
 
     fun borrar(id: Int) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id)
+        if (cocheRepository.existsById(id)) {
+            cocheRepository.deleteById(id)
         }
     }
 
+    fun listarCochesConNotas(): List<CocheNotasDTO> {
+        val coches = cocheRepository.findAll()
+
+        return coches.map { coche ->
+            val notas = notaRepository.findAllByCocheFk(coche.id_coche!!)
+            CocheNotasDTO(
+                coche = coche,
+                notas = notas
+            )
+        }
+    }
 
     fun importarDesdeCSV() {
 
@@ -50,7 +67,7 @@ class CocheService(private val repository: CocheRepository) {
                 )
             }
             // 4. Guardar todo en la BD de golpe
-            repository.saveAll(cochesLeidos)
+            cocheRepository.saveAll(cochesLeidos)
         }
     }
 }

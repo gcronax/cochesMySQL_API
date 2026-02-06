@@ -1,4 +1,4 @@
-package com.example.cochesMySQL.controller
+package com.example.cochesMySQL.controller.restControllers
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -8,6 +8,7 @@ import com.example.cochesMySQL.service.CocheService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import com.example.cochesMySQL.model.CocheNotasDTO
 
 @RestController
 @RequestMapping("/cars")
@@ -24,6 +25,12 @@ class CocheRestController(private val cocheService: CocheService) {
             ?: return ResponseEntity.notFound().build()
 
         return ResponseEntity.ok(coche)
+    }
+
+    @GetMapping("/notes")
+    fun getCarsWithNotes(): ResponseEntity<List<CocheNotasDTO>> {
+        val resultado = cocheService.listarCochesConNotas()
+        return ResponseEntity.ok(resultado)
     }
 
     @PostMapping

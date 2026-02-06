@@ -1,4 +1,4 @@
-package com.example.cochesMySQL.controller
+package com.example.cochesMySQL.controller.restControllers
 
 import com.example.cochesMySQL.model.ConcesionarioConCochesDTO
 import com.example.cochesMySQL.service.ConcesionarioCocheService

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface DepreciacionRepository : JpaRepository<Depreciacion, Int>{
-    fun findByCocheFk(cocheFk: Int): Depreciacion
+    fun findByCocheFk(cocheFk: Int): Depreciacion?
 }

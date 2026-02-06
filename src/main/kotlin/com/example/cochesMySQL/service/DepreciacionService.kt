@@ -14,7 +14,7 @@ class DepreciacionService(
 
     fun obtenerPorId(id: Int): Depreciacion? = repository.findById(id).orElse(null)
 
-    fun obtenerPorFk(cocheFk: Int): Depreciacion = repository.findByCocheFk(cocheFk)
+    fun obtenerPorFk(cocheFk: Int): Depreciacion? = repository.findByCocheFk(cocheFk)
 
     fun guardar(depreciacion: Depreciacion): Depreciacion = repository.save(depreciacion)
 
