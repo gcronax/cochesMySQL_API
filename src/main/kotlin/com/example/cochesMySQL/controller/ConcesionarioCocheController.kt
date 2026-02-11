@@ -24,20 +24,18 @@ class ConcesionarioCocheController(
         return "cc"
     }
 
-    // Mostrar el formulario (GET)
     @GetMapping("/cc/add")
     fun mostrarFormulario(model: Model): String {
         model.addAttribute("form", ConcesionarioCocheForm())
         model.addAttribute("concesionarios", concesionarioCocheService.listarConcesionarios())
         model.addAttribute("coches", concesionarioCocheService.listarCoches())
-        return "ccForm" // Nombre del archivo HTML del formulario
+        return "ccForm"
     }
 
-    // Procesar el formulario (POST)
     @PostMapping("/cc/guardar")
     fun guardarRelacion(@ModelAttribute("form") form: ConcesionarioCocheForm): String {
         concesionarioCocheService.guardar(form.idConcesionario, form.idCoche, form.precio)
-        return "redirect:/cc" // Redirige a la lista principal
+        return "redirect:/cc"
     }
 
     @GetMapping("/cc/coches-por-concesionario")
@@ -46,7 +44,6 @@ class ConcesionarioCocheController(
         return "cochesPorConcesionarioForm"
     }
 
-    // Procesar el concesionario seleccionado
     @PostMapping("/cc/coches-por-concesionario")
     fun mostrarCochesDeConcesionario(
         @RequestParam idConcesionario: Int,

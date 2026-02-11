@@ -4,8 +4,8 @@ import com.example.cochesMySQL.model.Concesionario
 import com.example.cochesMySQL.model.ConcesionarioCoche
 import com.example.cochesMySQL.model.ConcesionarioCocheId
 import com.example.cochesMySQL.model.Coche
-import com.example.cochesMySQL.model.PrecioCoche
-import com.example.cochesMySQL.model.ConcesionarioConCoches
+import com.example.cochesMySQL.model.modelDTO.PrecioCoche
+import com.example.cochesMySQL.model.modelDTO.ConcesionarioConCoches
 import com.example.cochesMySQL.repository.ConcesionarioCocheRepository
 import com.example.cochesMySQL.repository.CocheRepository
 import com.example.cochesMySQL.repository.ConcesionarioRepository

@@ -1,7 +1,7 @@
 package com.example.cochesMySQL.service
 
 import com.example.cochesMySQL.model.Coche
-import com.example.cochesMySQL.model.CocheNotas
+import com.example.cochesMySQL.model.modelDTO.CocheNotas
 import com.example.cochesMySQL.repository.CocheRepository
 import com.example.cochesMySQL.repository.NotaRepository
 import org.springframework.stereotype.Service

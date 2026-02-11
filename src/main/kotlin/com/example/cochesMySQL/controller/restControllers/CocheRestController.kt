@@ -8,7 +8,7 @@ import com.example.cochesMySQL.service.CocheService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import com.example.cochesMySQL.model.CocheNotas
+import com.example.cochesMySQL.model.modelDTO.CocheNotas
 
 @RestController
 @RequestMapping("/cars")
