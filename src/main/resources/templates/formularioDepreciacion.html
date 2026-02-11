@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Formulario Depreciación</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 th:text="${titulo}">Depreciación</h1>
+
+    <form th:action="@{/coches/depreciacion/guardar}" method="post">
+
+        <input type="hidden" name="cocheFk" th:value="${cocheFk}" />
+
+        <div class="mb-3">
+            <label>Valores (separados por coma)</label>
+            <input type="text"
+                   name="valoresTexto"
+                   class="form-control"
+                   placeholder="10000,9000,8000"
+                   required>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Guardar
+        </button>
+
+        <a th:href="@{/coches}" class="btn btn-secondary">
+            Volver
+        </a>
+
+    </form>
+</div>
+
+</body>
+</html>
+
+

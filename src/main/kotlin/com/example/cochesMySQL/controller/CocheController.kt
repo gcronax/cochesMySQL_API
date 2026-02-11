@@ -1,13 +1,18 @@
 package com.example.cochesMySQL.controller
 
 import com.example.cochesMySQL.model.Coche
+import com.example.cochesMySQL.model.Depreciacion
 import com.example.cochesMySQL.service.CocheService
+import com.example.cochesMySQL.service.DepreciacionService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
 
 @Controller
-class CocheController(private val cocheService: CocheService) {
+class CocheController(
+    private val cocheService: CocheService,
+    private val depreciacionService: DepreciacionService
+) {
 
     @GetMapping("/coches")
     fun listar(model: Model): String {
@@ -60,4 +65,43 @@ class CocheController(private val cocheService: CocheService) {
         cocheService.importarDesdeCSV()
         return "redirect:/coches"
     }
+
+    @PostMapping("/coches/depreciacion/guardar")
+    fun guardarDepreciacion(
+        @RequestParam cocheFk: Int,
+        @RequestParam valoresTexto: String
+    ): String {
+
+        val listaValores = valoresTexto
+            .split(",")
+            .mapNotNull { it.trim().toIntOrNull() }
+            .toMutableList()
+
+        val depExistente = depreciacionService.obtenerPorFk(cocheFk)
+
+        val depreciacion = if (depExistente != null) {
+            Depreciacion(
+                id_depreciacion = depExistente.id_depreciacion,
+                cocheFk = cocheFk,
+                valores = listaValores
+            )
+        } else {
+            Depreciacion(
+                cocheFk = cocheFk,
+                valores = listaValores
+            )
+        }
+
+        depreciacionService.guardar(depreciacion)
+
+        return "redirect:/coches"
+    }
+
+    @GetMapping("/coches/{id}/depreciacion/nueva")
+    fun nuevaDepreciacion(@PathVariable id: Int, model: Model): String {
+        model.addAttribute("cocheFk", id)
+        return "formularioDepreciacion"
+    }
+
+
 }

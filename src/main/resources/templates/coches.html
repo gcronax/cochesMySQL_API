@@ -44,6 +44,11 @@
                 <a th:href="@{/coches/borrar/{id_coche}(id_coche=${coche.id_coche})}"
                    class="btn btn-danger btn-sm"
                    onclick="return confirm('¿Estás seguro de borrar este coche?')">Borrar</a>
+
+                <a th:href="@{/coches/{id}/depreciacion/nueva(id=${coche.id_coche})}"
+                   class="btn btn-warning btn-sm">
+                    Añadir/Modificar Depreciación
+                </a>
             </td>
         </tr>
         </tbody>
