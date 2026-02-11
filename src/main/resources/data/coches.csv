@@ -1,10 +1,55 @@
-1;Ford;Focus;focus.jpg
-2;Toyota;Corolla;corolla.jpg
-3;Honda;Civic;civic.jpg
-4;BMW;Serie 3;bmw3.jpg
-5;Mercedes;Clase C;mercedes_c.jpg
-6;Audi;A4;audi_a4.jpg
-7;Volkswagen;Golf;golf.jpg
-8;Nissan;Altima;altima.jpg
-9;Kia;Ceed;ceed.jpg
-10;Hyundai;Elantra;elantra.jpg
+1;Ford;Focus;https://gcronax.github.io/car-images/cars/focus.jpg
+2;Toyota;Corolla;https://gcronax.github.io/car-images/cars/corolla.jpg
+3;Honda;Civic;https://gcronax.github.io/car-images/cars/civic.jpg
+4;BMW;Serie 3;https://gcronax.github.io/car-images/cars/bmw3.jpg
+5;Mercedes;Clase C;https://gcronax.github.io/car-images/cars/cla.jpg
+6;Audi;A4;https://gcronax.github.io/car-images/cars/audi_a4.jpg
+7;Volkswagen;Golf;https://gcronax.github.io/car-images/cars/golf.jpg
+8;Nissan;Altima;https://gcronax.github.io/car-images/cars/altima.jpg
+9;Kia;Ceed;https://gcronax.github.io/car-images/cars/ceed.jpg
+10;Hyundai;Elantra;https://gcronax.github.io/car-images/cars/elantra.jpg
+11;Mazda;Mazda3;https://gcronax.github.io/car-images/cars/mazda3.jpg
+12;Subaru;Impreza;https://gcronax.github.io/car-images/cars/impreza.jpg
+13;Jaguar;XE;https://gcronax.github.io/car-images/cars/jaguar_xe.jpg
+14;Volvo;S60;https://gcronax.github.io/car-images/cars/volvo_s60.jpg
+15;Tesla;Model 3;https://gcronax.github.io/car-images/cars/tesla_model_3.jpg
+16;Lexus;IS;https://gcronax.github.io/car-images/cars/lexus_is.jpg
+17;Infiniti;Q50;https://gcronax.github.io/car-images/cars/infiniti_q50.jpg
+18;Acura;TLX;https://gcronax.github.io/car-images/cars/acura_tlx.jpg
+19;Alfa Romeo;Giulia;https://gcronax.github.io/car-images/cars/alfa_giulia.jpg
+20;Fiat;Tipo;https://gcronax.github.io/car-images/cars/fiat_tipo.jpg
+21;Peugeot;308;https://gcronax.github.io/car-images/cars/peugeot_308.jpg
+22;Renault;Mégane;https://gcronax.github.io/car-images/cars/renault_megane.jpg
+23;Citroën;C4;https://gcronax.github.io/car-images/cars/citroen_c4.jpg
+24;Seat;Leon;https://gcronax.github.io/car-images/cars/seat_leon.jpg
+25;Opel;Astra;https://gcronax.github.io/car-images/cars/opel_astra.jpg
+26;Skoda;Octavia;https://gcronax.github.io/car-images/cars/skoda_octavia.jpg
+27;Mitsubishi;Lancer;https://gcronax.github.io/car-images/cars/mitsubishi_lancer.jpg
+28;Dodge;Charger;https://gcronax.github.io/car-images/cars/dodge_charger.jpg
+29;Chevrolet;Cruze;https://gcronax.github.io/car-images/cars/chevrolet_cruze.jpg
+30;Ford;Fiesta;https://gcronax.github.io/car-images/cars/ford_fiesta.jpg
+31;Toyota;Yaris;https://gcronax.github.io/car-images/cars/yaris.jpg
+32;Honda;Accord;https://gcronax.github.io/car-images/cars/honda_accord.jpg
+33;BMW;Serie 5;https://gcronax.github.io/car-images/cars/bmw5.jpg
+34;Mercedes;Clase E;https://gcronax.github.io/car-images/cars/mercedes_clase_e.jpg
+35;Audi;A6;https://gcronax.github.io/car-images/cars/audi_a6.jpg
+36;Volkswagen;Passat;https://gcronax.github.io/car-images/cars/volkswagen_passat.jpg
+37;Nissan;Sentra;https://gcronax.github.io/car-images/cars/nissan_sentra.jpg
+38;Kia;Rio;https://gcronax.github.io/car-images/cars/kia_rio.jpg
+39;Hyundai;i30;https://gcronax.github.io/car-images/cars/hyundai_i30.jpg
+40;Mazda;CX‑5;https://gcronax.github.io/car-images/cars/mazda_cx5.jpg
+41;Subaru;Forester;https://gcronax.github.io/car-images/cars/subaru_forester.jpg
+42;Jaguar;XF;https://gcronax.github.io/car-images/cars/jaguar_xf.jpg
+43;Volvo;V60;https://gcronax.github.io/car-images/cars/volvo_v60.jpg
+44;Tesla;Model Y;https://gcronax.github.io/car-images/cars/tesla_model_y.jpg
+45;Lexus;ES;https://gcronax.github.io/car-images/cars/lexus_es.jpg
+46;Infiniti;Q60;https://gcronax.github.io/car-images/cars/infiniti_q60.jpg
+47;Acura;RDX;https://gcronax.github.io/car-images/cars/acura_rdx.jpg
+48;Alfa Romeo;Stelvio;https://gcronax.github.io/car-images/cars/alfa_stelvio.jpg
+49;Fiat;500;https://gcronax.github.io/car-images/cars/fiat_500.jpg
+50;Peugeot;208;https://gcronax.github.io/car-images/cars/peugeot_208.jpg
+51;Renault;Clio;https://gcronax.github.io/car-images/cars/renault_clio.jpg
+52;Citroën;C3;https://gcronax.github.io/car-images/cars/citroen_c3.jpg
+53;Seat;Ibiza;https://gcronax.github.io/car-images/cars/seat_ibiza.jpg
+54;Opel;Corsa;https://gcronax.github.io/car-images/cars/opel_corsa.jpg
+55;Skoda;Fabia;https://gcronax.github.io/car-images/cars/skoda_fabia.jpg
