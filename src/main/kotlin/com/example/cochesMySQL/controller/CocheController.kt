@@ -60,6 +60,7 @@ class CocheController(
         return "index"
     }
 
+    //esta función ya no es necesaria pero a veces me es útil, por eso la dejo
     @GetMapping("/importar")
     fun importarDatos(): String {
         cocheService.importarDesdeCSV()

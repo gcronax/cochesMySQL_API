@@ -1,0 +1,109 @@
+/* Fondo y fuente general */
+body {
+    background-color: #f4f7f9; /* color suave de fondo */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #0d6efd; /* azul Bootstrap */
+    margin-bottom: 25px;
+}
+
+/* Subtítulo / mensaje */
+h5, p {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Tabla estilizada */
+table {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.table th {
+    background-color: #0d6efd;
+    color: #fff;
+    text-align: center;
+}
+
+.table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f1f5f9;
+}
+
+/* Imágenes de coches */
+.img-fluid {
+    max-height: 120px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Botones */
+.btn {
+    border-radius: 8px;
+    transition: all 0.3s;
+    margin: 2px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Botón principal */
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: #212529;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border: none;
+    color: #fff;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Espaciado del link de regreso */
+p a {
+    display: inline-block;
+    margin-top: 30px;
+}
